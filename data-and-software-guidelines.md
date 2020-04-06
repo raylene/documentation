@@ -46,7 +46,7 @@ A `README.md` file should be present, identifying the purpose of the software an
 
 A `LICENSE.md` file should be present, specifying the licensing terms.
 
-A `CODE\_OF\_CONDUCT.md` file should be present, defining the standards for the community, per [GitHub’s specs](https://help.github.com/en/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project).  USDR-originated projects should use the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct/code_of_conduct.txt).
+A `CODE_OF_CONDUCT.md` file should be present, defining the standards for the community, per [GitHub’s specs](https://help.github.com/en/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project).  USDR-originated projects should use the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct/code_of_conduct.txt).
 
 A `CONTRIBUTING.md` file should be present, describing how to contribute to the project (if, indeed, contributions are welcome). That should make clear the license status of the software, which all contributors’ work will be released under when it is incorporated into the larger work.
 
