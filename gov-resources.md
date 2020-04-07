@@ -1,5 +1,7 @@
 # Government-provided COVID-19 resources
 
+**Note that, separate from the below list of resources, New America Foundation maintains a [Pandemic Response Repository](https://github.com/newamericafoundation/pandemic-response-repository/), a running list of all government open source projects responding to the novel Coronavirus, updated daily, based on research by their team.**
+
 ## Self-assessment tools
 
 - [New Jersey](https://self.covid19.nj.gov/)
