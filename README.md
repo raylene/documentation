@@ -2,4 +2,4 @@
 
 ## Table of Contents
 
-* [Data and Software Guidelines](blob/master/data-and-software-guidelines.md)
+* [Data and Software Guidelines](data-and-software-guidelines.md)
