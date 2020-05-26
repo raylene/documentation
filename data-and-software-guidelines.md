@@ -1,12 +1,14 @@
-#  Data and Software Guidelines
+# Data and Software Guidelines
 
 This document describes how we manage data and write software at U.S. Digital Response ("USDR"). If you have a good reason to request diverging from these policies, we need to hear from you at [info@usdigitalresponse.org](mailto:info@usdigitalresponse.org).
 
-## Open and Accessible by Default
+## Guiding Principles
 
-USDR data, code, documentation, and projects are open and accessible by default. USDR efforts are meant to be replicated, reused, adapted, and otherwise available for collaboration. USDR data, code, documentation, and projects should be easily discoverable, and projects with a website should dedicate a public-facing point of contact with whom  potential collaborators can get in touch with questions.
+#### Open and Accessible by Default
 
-## Design Recommendations
+USDR data, code, documentation, and projects are open and accessible by default. USDR efforts are meant to be replicated, reused, adapted, and otherwise available for collaboration. USDR data, code, documentation, and projects should be easily discoverable, and projects with a website should dedicate a public-facing point of contact with whom potential collaborators can get in touch with questions.
+
+#### Consistent Design
 
 Any website that will be operated by or represent a government entity should use the [U.S. Web Design System](https://designsystem.digital.gov/). This design framework allows for rapid development using a standard pattern library, and ensures visual consistency between projects and with existing government design practices.
 
@@ -43,20 +45,34 @@ Projects originating with USDR must be licensed under the [Apache 2.0 License](h
 ### Repository Standards
 
 A `README.md` file should be present, identifying the purpose of the software and its creators, linking to documentation, providing screenshots (if relevant), a link to an example instance of the software (if relevant), a link to API documentation (if relevant), and a link to the license file. If the software is the work of an organization, also provide a link back to a page on that organization’s website to demonstrate the software’s provenance.
-
+Soon we hope to support a self-service threat model so that teams can diagram
 A `LICENSE.md` file should be present, specifying the licensing terms.
 
-A `CODE_OF_CONDUCT.md` file should be present, defining the standards for the community, per [GitHub’s specs](https://help.github.com/en/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project).  USDR-originated projects should use the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct/code_of_conduct.txt).
+A `CODE_OF_CONDUCT.md` file should be present, defining the standards for the community, per [GitHub’s specs](https://help.github.com/en/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project). USDR-originated projects should use the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct/code_of_conduct.txt).
 
 A `CONTRIBUTING.md` file should be present, describing how to contribute to the project (if, indeed, contributions are welcome). That should make clear the license status of the software, which all contributors’ work will be released under when it is incorporated into the larger work.
 
-## Documentation
+### Documentation
 
 All dependencies must be listed and the licenses documented. (This can be done in the form of a machine-readable manifest, e.g. `package.json`, `requirements.txt`, `composer.json`, etc.) Major functionality in the software/source code must be documented. Individual methods should be documented inline using comments that permit the use of documentation-generation tools, such as [JSDoc](https://jsdoc.app/).
 
 The `README.md` file should provide (or link to) step-by-step instructions for standing up the site locally (in Docker or a common equivalent), and likewise provide step-by-step instructions for deploying the site to a hosting environment. When relevant, infrastructure should be defined as code in e.g. Terraform or Kubernetes.
 
-## Commits
+The `README.md` is required to include a ["Data Inventory" section](https://github.com/usdigitalresponse/documentation/examples/data-inventory.md) that lists 1) all data that will be collected or stored by the system, 2) how its stored, and 3) whether the data is intended to be publically accessible. This is extremely important to make sure we properly secure any data we collect.
+
+> #### Example Data Inventory
+>
+> Our app collects information from a state's citizens and shares the contact information of doctors who have partnered with us.
+>
+> | name                           | data store | public |
+> | ------------------------------ | ---------- | ------ |
+> | citizen emails                 | S3 bucket  | false  |
+> | citizen names                  | S3 bucket  | false  |
+> | citizen social security number | AWS RDS    | false  |
+> | doctor names                   | AWS RDS    | true   |
+> | doctor emails                  | AWS RDS    | true   |
+
+### Commits
 
 Commit messages should contain:
 
@@ -64,11 +80,15 @@ Commit messages should contain:
 2. A description that includes, at least, the goal (the "why" not "what") of the change. Depending on complexity you might also include a description of how it works, alternative approaches that were rejected, benchmarks etc.
 3. A test plan: Whatever actions you took to verify the change was correct. These should be detailed enough so that another person could perform the same test. Without automated testing, this at least gives future engineers a chance to do a manual regression test on your changes.
 
-## Code Review and Automated Testing
+### Code Review and Automated Testing
 
-**Code review** ensures we don’t have a single point of failure, have a shared understanding of how our systems work, and maintain a consistent level of quality across the codebase.  All software commits should be reviewed by another engineer, e.g via a pull request. Given the time sensitivity of our work, responding to assigned reviews should be everyone’s top priority (i.e., review first, do your own work second).
+**Code review** ensures we don’t have a single point of failure, have a shared understanding of how our systems work, and maintain a consistent level of quality across the codebase. All software commits should be reviewed by another engineer, e.g via a pull request. Given the time sensitivity of our work, responding to assigned reviews should be everyone’s top priority (i.e., review first, do your own work second).
 
-**Automated testing** ensures we can move fast with safety. However, effective testing is a substantial time commitment that needs to be weighed against our need to ship as fast as possible.  Use good judgment here, and consider a) the consequences of something failing, b) how fragile it’s likely to be, and c) how much time investment is needed to correctly test the component.
+**Security review and threat modeling** ensures that we consider all of the security risks that an application may face. Before going live with a project, please reach out in the #security Slack channel to partner with a security team member to review your project.
+
+**Automated testing** ensures we can move fast with safety. However, effective testing is a substantial time commitment that needs to be weighed against our need to ship as fast as possible. Use good judgment here, and consider a) the consequences of something failing, b) how fragile it’s likely to be, and c) how much time investment is needed to correctly test the component.
+
+**Automated security testing** ensures that we protect the applications we create and the data they will collect. All public repositories should have [Snyk](https://app.snyk.io/org/usdigitalresponse/) vulnerability and dependency scanning integrated. Snyk will automatically run on every PR and fail on high severity vulnerabilities that have a fix (dependency upgrade) available.
 
 ## Contact Us
 
