@@ -1,6 +1,6 @@
 # Data and Software Guidelines
 
-This document describes how we manage data and write software at U.S. Digital Response ("USDR"). If you have a good reason to request diverging from these policies, we need to hear from you at [info@usdigitalresponse.org](mailto:info@usdigitalresponse.org).
+This document describes how we manage data and write software at U.S. Digital Response ("USDR"). If you have a good reason to request diverging from these policies, we need to hear from you at [tools-team@usdigitalresponse.org](mailto:tools-team@usdigitalresponse.org).
 
 ## Guiding Principles
 
@@ -14,7 +14,7 @@ Any website that will be operated by or represent a government entity should use
 
 ## Data Guidelines
 
-Given the nature of COVID-19 relief work and close collaboration with government partners, data is a critical component of many USDR projects. In all cases (even when the data itself has restricted access for good reasons), the use cases, access restrictions, and descriptions of any relevant datasets should be well-documented and shared openly.
+Given the nature of COVID-19 relief work and close collaboration with government partners, data is a critical component of many USDR projects. In all cases (even when the data itself has restricted access for good reasons), the use cases, access restrictions, and descriptions of any relevant datasets should be well-documented and shared openly. Note that some government partners may ask you to comply with specific data requirements — please share and review any such agreements with [tools-team@usdigitalresponse.org](mailto:tools-team@usdigitalresponse.org).
 
 ### Open Data
 
@@ -28,11 +28,13 @@ USDR collects limited data from USDR volunteers, government, and organizational 
 
 USDR will take reasonable steps to protect this data from unauthorized modification, disclosure, and destruction. USDR will not share volunteer or partner data (or any data about volunteers or partners) for any other purposes without permission.
 
+Additional information can be found via privacy policy notes shared on http://www.usdigitalresponse.org/.
+
 ## Software Guidelines
 
 ### Source Control
 
-[The U.S. Digital Response GitHub organization](https://github.com/usdigitalresponse) houses any USDR repositories, and — as needed — forks of software developed elsewhere. For questions or access to our repository, email [tools-team@usdigitalresponse.org](mailto:tools-team@usdigitalresponse.org).
+[The U.S. Digital Response GitHub organization](https://github.com/usdigitalresponse) houses any USDR repositories, and — as needed — forks of software developed elsewhere. If you have already started a project in another repository, please fork it into this organization and resume work here. For questions or access to our repository, email [tools-team@usdigitalresponse.org](mailto:tools-team@usdigitalresponse.org).
 
 When assisting government partners through staff augmentation to perform software development, we recognize that source control is rare, and that we are unlikely to be in a position to influence licensing decisions. Whenever possible, we should encourage partners to develop in accessible GitHub accounts or make documentation publicly available.
 
@@ -40,7 +42,7 @@ When assisting government partners through staff augmentation to perform softwar
 
 For a project that originated elsewhere but will be built with active collaboration from USDR (e.g. relies on connections to our government partners for user research and feedback, has volunteer support), the work must be published under [an OSI-approved license](https://opensource.org/licenses), a [Creative Commons Zero license](https://creativecommons.org/choose/zero/), or committed to the public domain.
 
-Projects originating with USDR must be licensed under the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
+Projects originating with USDR must be licensed under the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0). (If for some reason the Apache 2.0 license is not an approved partner list, use the [MIT License](https://opensource.org/licenses/MIT).)
 
 ### Repository Standards
 
